@@ -1,0 +1,148 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #05284e;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+span{
+    margin: 10px;
+}
+
+.champion, .item, .rune {
+    border-radius: 8px;
+    margin: 10px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    background-color: #e6e6e6;
+}
+
+.champion img, .item img, .rune img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.pagination span{
+    color: #e6e6e6;
+}
+
+.pagination span{
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para los botones */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Boton de Filtrado */
+.container-filter-btn{
+    display: flex;
+    margin: 0 20%;
+    width: 7%;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    cursor: pointer;  
+    gap: 5px;
+}
+
+/* Contenedor del Filtrado */
+.container-filter{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -300px;  
+    width: 300px;
+    color: #555;
+    background-color: #e6e6e6;
+    height: 100%;
+    padding-top: 50px;
+    transition: all .3s linear;
+}
+.container-filter.active{
+    left: 0;
+}
+
+/* Filtrador */
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Selector */
+.select{
+    text-align: center;
+}
+/* Buscador */
+.form-grup{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+.form-grup input{
+    font-family: inherit;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.icon-search{
+    width: 20px;
+    height: 20px;
+    stroke: #555;
+}
+.btn-search{
+    font-family: inherit;   
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    background-color: #fff;
+}

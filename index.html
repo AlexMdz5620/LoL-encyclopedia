@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends</title>
+
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="module" src="./js/main.js"></script>
+
+</head>
+<body>
+    <header>
+        <h3> Bienvenidos a la Eciclopedia de League of Legends</h3>
+    </header>
+
+    <div class="container-filter-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+        </svg>
+        <span>Filtrar</span>
+    </div>  
+  
+    <main id="content">
+    </main>
+
+    <div class="container-filter">
+        <div class="filter-by-type">
+            <nav class="nav">
+                <div class="select">
+                    <h1>Campeones/Items/Runas</h1>
+                    <select name="" id="selector">
+                        <option value="" disabled="true">Selecciona una opción</option>
+                        <option value="champions" selected="true">Campeones</option>
+                        <option value="items">Items</option>
+                        <option value="runes">Runas</option>
+                    </select>
+                </div>
+
+                <form id="search">
+                    <div class="form-grup">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="icon-search">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                        <input id="input-name" type="search" placeholder="Buscar Campeon/Item" name="nombre" class="buscador">
+                        <input type="submit" class="btn-search" value="Buscar">
+                    </div>
+                </form>
+
+                <div class="typs">
+                    <h1>Rol</h1>
+                    <select name="" id="">
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
