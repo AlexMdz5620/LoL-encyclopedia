@@ -33,7 +33,7 @@ function displayItems(data) {
         const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.11.1/img/item/${item.image.full}`;
         div.innerHTML = `
             <img src="${imgSrc}" alt="${item.name}">
-            <h4>${item.name}</h4>
+            <h2>${item.name}</h2>
             <button onclick="window.location.href='./details.html?type=item&id=${itemsKeys[id]}'">Más información</button>
         `;
         content.appendChild(div);

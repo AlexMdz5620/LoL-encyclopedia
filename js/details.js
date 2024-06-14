@@ -1,5 +1,5 @@
 import { fetchChampionDetails, displayChampionDetails } from "./data/champion.js";
-import { fetchItemDetails, displayItemDetails, getItemById } from "./data/item.js";
+import { fetchItemDetails, displayItemDetails } from "./data/item.js";
 import { fetchRuneDetails, displayRuneDetails } from "./data/rune.js";
 
 document.addEventListener('DOMContentLoaded', async () => {

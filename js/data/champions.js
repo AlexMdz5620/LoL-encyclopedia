@@ -33,8 +33,8 @@ export function displayChampions(champions) {
         const imgSrc = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
         div.innerHTML = `
             <img src="${imgSrc}" alt="${champion.name}">
-            <h4>${champion.name}</h4>
-            <p>${changeTitle}</p>
+            <h2>${champion.name}</h2>
+            <h4>${changeTitle}</h4>
             <p>${formatTagName(champion.tags.join(', '))}</p>
             <button onclick="window.location.href='./details.html?type=champion&id=${champion.id}'">Más información</button>
         `;

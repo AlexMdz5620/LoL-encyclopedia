@@ -18,14 +18,14 @@ async function fetchItemDetails(id) {
     }
 }
 
-export const getItemById = async (id) => {
-    const items = await fetchItemDetails();
-    return items[id];
-};
 
 const displayItemDetails = (item) => {
     const content = document.getElementById('detail-content');
+    const bgImg = document.getElementById('bg-img');
+    const imgSrc = 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2015/02/447638-guia-league-legends-grieta-invocador.jpg?tf=1200x'
     content.innerHTML = '';
+
+    bgImg.style.backgroundImage = `url(${imgSrc})`;
 
     if (item) {
         const div = document.createElement('div');

@@ -7,21 +7,36 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #05284e;
+    background-image: url('https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2015/02/447638-guia-league-legends-grieta-invocador.jpg?tf=1200x');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 20px;
 }
 
 header {
-    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
+    padding: 10px;
+    position: fixed;
+    width: 96.3vw;
+    height: 15vh;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 120px;
+    gap: 50px;
 }
 
 span{
@@ -29,34 +44,29 @@ span{
 }
 
 .champion, .item, .rune {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     border-radius: 8px;
-    margin: 10px;
-    padding: 10px;
     width: 250px;
     text-align: center;
-    background-color: #e6e6e6;
+    background: rgba(0, 0, 0, 0.237);
+    color: #e6e6e6;
+    transition: transform 0.3s;
+    gap: 5px
+}
+
+.champion:hover, .item:hover, .rune:hover{
+    transform: scale(1.1);
 }
 
 .champion img, .item img, .rune img {
     max-width: 100%;
-    height: auto;
-    border-radius: 8px;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    padding: 0 10px;
-}
-
-.pagination span{
-    color: #e6e6e6;
-}
-
-.pagination span{
-    color: #fff;
+.champion h2, .item h2, .rune h2 {
+    margin: 5px;
 }
 
 .hidden {
@@ -66,11 +76,13 @@ span{
 /* Estilos para los botones */
 button {
     padding: 10px 20px;
+    margin: 5px auto 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -80,12 +92,11 @@ button:hover {
 /* Boton de Filtrado */
 .container-filter-btn{
     display: flex;
-    margin: 0 20%;
     width: 7%;
     background-color: #e6e6e6;
+    color: #555;
     border-radius: 10px;
-    cursor: pointer;  
-    gap: 5px;
+    cursor: pointer;
 }
 
 /* Contenedor del Filtrado */

@@ -90,8 +90,8 @@ function displayChampionDetails(champion) {
             const skinName = index === 0 ? champion.name : skin.name;
             skinsHTML += `
                 <div class="carousel-item">
-                    <img src="${skinImgSrc}" alt="${skinName}">
                     <p>${skinName}</p>
+                    <img src="${skinImgSrc}" alt="${skinName}">
                 </div>
             `;
         });
