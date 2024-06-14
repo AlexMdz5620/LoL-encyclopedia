@@ -57,7 +57,6 @@ function displayChampionDetails(champion) {
         `;
     });
 
-    // Crear HTML para stats
     // Ordenar los stats a mi placer
     const statOrder = [
         'hp', 'hpperlevel', 'mp', 'mpperlevel', 'movespeed', 'attackrange', 'armor', 'armorperlevel', 
@@ -65,7 +64,8 @@ function displayChampionDetails(champion) {
         'mpregen', 'mpregenperlevel', 'crit', 'critperlevel', 'attackdamage', 
         'attackdamageperlevel', 'attackspeed', 'attackspeedperlevel'
     ];
-
+    
+    // Crear HTML para stats
     let statsHTML = '';
     statOrder.forEach(stat => {
         if (champion.stats[stat] !== undefined) {

@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const typesSelect = document.querySelector('.typs select');
     
     const containerFilter = document.querySelector('.container-filter');
-const searchForm = document.getElementById('search');
 
     let allChampions = [];
 
