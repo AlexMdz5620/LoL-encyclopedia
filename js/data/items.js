@@ -13,7 +13,6 @@ export async function fetchItems() {
         const data = await res.json();
         const itemsData = Object.values(data.data);
         itemsKeys = Object.keys(data.data)
-        console.log(itemsKeys)
         displayItems(itemsData)
         console.log(itemsData)
 
@@ -28,14 +27,17 @@ function displayItems(data) {
 
     for (const id in data) {
         const item = data[id];
-        const div = document.createElement('div');
-        div.classList.add('item');
-        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.11.1/img/item/${item.image.full}`;
-        div.innerHTML = `
-            <img src="${imgSrc}" alt="${item.name}">
-            <h2>${item.name}</h2>
-            <button onclick="window.location.href='./details.html?type=item&id=${itemsKeys[id]}'">Más información</button>
-        `;
-        content.appendChild(div);
+
+        if(item.colloq !== '' && item.description !== '' && item.plaintext !== '' && item.inStore !== false){
+            const div = document.createElement('div');
+            div.classList.add('item');
+            const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${item.image.full}`;
+            div.innerHTML = `
+                <img src="${imgSrc}" alt="${item.name}">
+                <h2>${item.name}</h2>
+                <button onclick="window.location.href='./detailsItem.html?type=item&id=${itemsKeys[id]}'">Más información</button>
+            `;
+            content.appendChild(div);
+        }
     };
 }

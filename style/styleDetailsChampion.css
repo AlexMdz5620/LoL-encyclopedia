@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 50%;
+    margin: auto;
+    position: relative;
+    color: white;
+    height: auto;
+    display: flex;
+    margin: 15px auto;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 15vh;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#bg-img {
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 10px;
+}
+
+h2, h3, h5 {
+    color: #ffcc00;
+}
+
+.champion-detail {
+    background-position: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.champion-detail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.champion-detail div {
+    margin-bottom: 20px;
+}
+
+/* Titulo del Campeón */
+.champion-title{
+    text-align: center;
+}
+
+/* Tarjeta de Habilidades */
+.cards-spells{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-spell{
+    text-align: center;
+    width: 20%;
+    transition: transform 0.3s;
+}
+
+.card-spell:hover  {
+    transform: scale(1.1);
+}
+
+.card-spell-description {
+    display: none;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.card-spell.fixed .card-spell-description {
+    display: block;
+    opacity: 1;
+    max-height: 100%;
+}
+/* Estadísticas */
+.stats  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    
+}
+.stat{
+    width: 15%;
+    border: solid 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.stat h5, p {
+    margin: 5px;
+}
+/* Agregar Items */
+
+/* Carrusel de Skins*/
+.carousel-container {
+    position: relative;
+    width: 10 0%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+    text-align: center;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+.carousel-item img {
+    width: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Extras de Champion*/
+.champion-info, .champion-partype, .champion-tags {
+    margin-top: 20px;
+}
+
+.champion-info p, .champion-partype p, .champion-tags p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.champion-info h2, .champion-partype h5, .champion-tags h5 {
+    margin-bottom: 10px;
+}

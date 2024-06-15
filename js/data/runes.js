@@ -26,7 +26,7 @@ function displayRunes(data) {
         div.innerHTML = `
             <img src="${imgSrc}" alt="${rune.name}">
             <h2>${rune.name}</h2>
-            <button onclick="window.location.href='./details.html?type=rune&id=${rune.id}'">Más información</button>
+            <button onclick="window.location.href='./detailsRune.html?type=rune&id=${rune.id}'">Más información</button>
         `;
         content.appendChild(div);
     });

@@ -10,7 +10,7 @@ async function fetchItemDetails(id) {
         const items = data.data
         for(const item in items){
             if(id === item){
-                return items[id]
+                return { item: items[id], allItems: items}
             }
         }
     } catch (error) {
@@ -18,8 +18,20 @@ async function fetchItemDetails(id) {
     }
 }
 
+const getItemsToUpgrade = (item, allItems) => {
+    const upgradeItems = [];
+    if (item.into) {
+        for (const upgradeId of item.into) {
+            if (allItems[upgradeId]) {
+                upgradeItems.push(allItems[upgradeId]);
+            }
+        }
+    }
+    return upgradeItems;
+};
 
-const displayItemDetails = (item) => {
+
+const displayItemDetails = ({ item, allItems }) => {
     const content = document.getElementById('detail-content');
     const bgImg = document.getElementById('bg-img');
     const imgSrc = 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2015/02/447638-guia-league-legends-grieta-invocador.jpg?tf=1200x'
@@ -30,20 +42,45 @@ const displayItemDetails = (item) => {
     if (item) {
         const div = document.createElement('div');
         div.classList.add('item-details');
-        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.11.1/img/item/${item.image.full}`;
+        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${item.image.full}`;
         div.innerHTML = `
             <div class="item">
-                <img src="${imgSrc}" alt="${item.name}">
-                <h2>${item.name}</h2>
+                <div>
+                    <img src="${imgSrc}" alt="${item.name}" style="width:70px;height:70px;">
+                    <h2>${item.name}</h2>
+                </div>
                 <p>${item.plaintext}</p>
                 <p>${item.description}</p>
-                <p>Cost: ${item.gold.total} gold</p>
+                <ul>
+                    <li>Costo: ${item.gold.total} oro</li>
+                    <li>Venta: ${item.gold.sell} oro</li>
+                </ul>
             </div>
         `;
+        
+        
+        const upgradeItems = getItemsToUpgrade(item, allItems);
+        if (upgradeItems.length > 0) {
+            const upgradeDiv = document.createElement('div');
+            upgradeDiv.classList.add('upgrade-items');
+            let upgradeContent = `<h3>Se puede mejorar a:</h3>`;
+            upgradeItems.forEach(upgradeItem => {
+                const upgradeImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${upgradeItem.image.full}`;
+                upgradeContent += `
+                    <div class="upgrade-items">
+                        <h5>${upgradeItem.name}</h5>
+                        <img src="${upgradeImgSrc}" alt="${upgradeItem.name}" style="width:70px;height:70px;">
+                    </div>
+                `;
+            });
+            upgradeDiv.innerHTML = upgradeContent;
+            div.appendChild(upgradeDiv);
+        }
+
         content.appendChild(div);
     } else {
         content.innerHTML = '<p>Item no encontrado</p>';
-    }
+    }    
 };
 
 

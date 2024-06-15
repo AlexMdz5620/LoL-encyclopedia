@@ -36,7 +36,7 @@ export function displayChampions(champions) {
             <h2>${champion.name}</h2>
             <h4>${changeTitle}</h4>
             <p>${formatTagName(champion.tags.join(', '))}</p>
-            <button onclick="window.location.href='./details.html?type=champion&id=${champion.id}'">Más información</button>
+            <button onclick="window.location.href='./detailsChampion.html?type=champion&id=${champion.id}'">Más información</button>
         `;
         content.appendChild(div);
     }

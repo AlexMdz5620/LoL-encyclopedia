@@ -5,11 +5,13 @@ body {
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 900px;
+    margin: auto;
     position: relative;
     color: white;
+    height: auto;
+    display: flex;
+
 }
 
 #bg-img {
@@ -24,7 +26,6 @@ h2, h3, h5 {
 }
 
 .champion-detail {
-    background-size: cover;
     background-position: center;
     color: white;
     background: rgba(0, 0, 0, 0.5);
@@ -145,7 +146,7 @@ h2, h3, h5 {
     right: 0;
 }
 
-/* Extras */
+/* Extras de Champion*/
 .champion-info, .champion-partype, .champion-tags {
     margin-top: 20px;
 }

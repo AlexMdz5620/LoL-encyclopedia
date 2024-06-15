@@ -65,6 +65,11 @@ span{
     max-width: 100%;
 }
 
+.item img{
+    width: 70px;
+    height: 70px;
+}
+
 .champion h2, .item h2, .rune h2 {
     margin: 5px;
 }
