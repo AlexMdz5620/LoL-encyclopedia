@@ -61,3 +61,20 @@ header {
     align-items: center;
     justify-content: center;
 }
+
+/* Boton regresar */
+.back-home{
+    background-color: #e6e6e6;
+    color: #555;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 auto;
+    transition: 0.5s;
+
+}
+.back-home:hover{
+    background-color: #555;
+    color: #e6e6e6;
+}

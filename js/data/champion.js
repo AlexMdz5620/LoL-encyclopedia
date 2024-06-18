@@ -145,7 +145,6 @@ function displayChampionDetails(champion) {
     
 
     content.innerHTML = `
-    <section>
         <div class="champion-title">
             <h1>${champion.name}</h1>
             <img src="${imgSrc}" alt="${champion.name}">
@@ -204,7 +203,6 @@ function displayChampionDetails(champion) {
                 <button class="carousel-button next">❯</button>
             </div>
         </div>
-    </section>
     `;
 
     // Evento para que se muestre la descripción de las habilidades

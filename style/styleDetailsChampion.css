@@ -6,7 +6,6 @@ body {
 
 main {
     max-width: 50%;
-    margin: auto;
     position: relative;
     color: white;
     height: auto;
@@ -42,11 +41,14 @@ h2, h3, h5 {
 
 .champion-detail {
     background-position: center;
-    color: white;
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
 }
 
 .champion-detail img {
@@ -54,10 +56,6 @@ h2, h3, h5 {
     height: auto;
     display: block;
     margin: 0 auto;
-}
-
-.champion-detail div {
-    margin-bottom: 20px;
 }
 
 /* Titulo del Campeón */
@@ -173,4 +171,21 @@ h2, h3, h5 {
 
 .champion-info h2, .champion-partype h5, .champion-tags h5 {
     margin-bottom: 10px;
+}
+
+/* Boton regresar */
+.back-home{
+    background-color: #e6e6e6;
+    color: #555;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 auto;
+    transition: 0.5s;
+
+}
+.back-home:hover{
+    background-color: #555;
+    color: #e6e6e6;
 }
