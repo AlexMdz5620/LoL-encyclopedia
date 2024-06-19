@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const selector = document.getElementById('selector');
     const content = document.getElementById('content');
     const btnFilter = document.querySelector('.container-filter-btn');
+    const closeBtn = document.querySelector('.close-btn');
     const searchInput = document.getElementById('input-name');
     const rolesBtn = document.getElementById('roles-btn');
     const rolesCheckboxes = document.getElementById('roles-checkboxes');
-    
     const containerFilter = document.querySelector('.container-filter');
 
     // Función para cambiar el placeholder del buscador
@@ -87,6 +87,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Botón para mostrar el Filtrador
     btnFilter.addEventListener('click', () => {
         containerFilter.classList.toggle('active');
+    });
+
+    // Botón para cerrar el Filtrador
+    closeBtn.addEventListener('click', () => {
+        containerFilter.classList.remove('active');
     });
 
      // Búsqueda en tiempo real
