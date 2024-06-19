@@ -5,7 +5,7 @@ const championsUrl = `${URL}/champion.json`;
 
 let championsData = []
 
-export const fetchChampions = async () => {
+const fetchChampions = async () => {
     try {
         const res = await fetch(championsUrl);
         if (!res.ok) {
@@ -13,13 +13,14 @@ export const fetchChampions = async () => {
         }
         const data = await res.json();
         championsData = Object.values(data.data)
+        console.log(championsData)
         displayChampions(championsData);
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
 }
 
-export function displayChampions(champions) {
+function displayChampions(champions) {
     const content = document.getElementById('content');
     content.innerHTML = '';
 
@@ -42,10 +43,17 @@ export function displayChampions(champions) {
     }
 }
 
-export const getUniqueTags = () => {
+const getUniqueTags = () => {
     const tags = new Set();
     championsData.forEach(champion => {
         champion.tags.forEach(tag => tags.add(tag));
     });
     return Array.from(tags);
 };
+
+export {
+    fetchChampions,
+    displayChampions,
+    getUniqueTags,
+    championsData
+}

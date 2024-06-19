@@ -1,6 +1,6 @@
 import { fetchItems } from "./data/items.js";
 import { fetchRunes } from "./data/runes.js";
-import { fetchChampions, displayChampions, getUniqueTags } from "./data/champions.js";
+import { fetchChampions, displayChampions, getUniqueTags, championsData } from "./data/champions.js";
 import { formatTagName } from "./data/champion.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -8,11 +8,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const content = document.getElementById('content');
     const btnFilter = document.querySelector('.container-filter-btn');
     const searchInput = document.getElementById('input-name');
-    const typesSelect = document.querySelector('.typs select');
+    const rolesBtn = document.getElementById('roles-btn');
+    const rolesCheckboxes = document.getElementById('roles-checkboxes');
     
     const containerFilter = document.querySelector('.container-filter');
-
-    let allChampions = [];
 
     // Función para cambiar el placeholder del buscador
     const updateSearchPlaceholder = (value) => {
@@ -25,60 +24,69 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    // Función para actualizar los tags
-    const updateTags = (tags) => {
-        typesSelect.innerHTML = '<option value="">Selecciona un rol</option>';
+    // Función para actualizar los checkboxes
+    const updateCheckboxes = (tags) => {
+        rolesCheckboxes.innerHTML = '';
         tags.forEach(tag => {
-            const option = document.createElement('option');
-            option.value = tag;
-            option.textContent = formatTagName(tag);
-            typesSelect.appendChild(option);
+            const label = document.createElement('label');
+            label.innerHTML = `
+                <input type="checkbox" value="${tag}"> ${formatTagName(tag)}
+            `;
+            rolesCheckboxes.appendChild(label);
         });
     };
 
-    // Función para filtrar campeones por rol
-    const filterChampionsByRole = (role) => {
-        const filteredChampions = allChampions.filter(champion => champion.tags.includes(role));
-        displayChampions(filteredChampions);
+    // Función para filtrar campeones por roles seleccionados
+    const filterChampionsByRoles = () => {
+        const checkedRoles = Array.from(rolesCheckboxes.querySelectorAll('input:checked')).map(input => input.value);
+
+        if (checkedRoles.length > 2) {
+            content.innerHTML = '<p>No existe campeones con más de tres roles.</p>';
+            return;
+        }
+
+        if (checkedRoles.length > 0) {
+            const filteredChampions = championsData.filter(champion => checkedRoles.some(role => champion.tags.includes(role)));
+            displayChampions(filteredChampions);
+        } else {
+            displayChampions(championsData);
+        }
     };
+
+    // Mostrar/Ocultar checkboxes al hacer click en el botón de roles
+    rolesBtn.addEventListener('click', () => {
+        rolesCheckboxes.classList.toggle('hidden');
+    });
+
+    // Evento para filtrar campeones por roles seleccionados
+    rolesCheckboxes.addEventListener('change', filterChampionsByRoles);
 
     // Cargar campeones por defecto
     await fetchChampions();
     updateSearchPlaceholder('champions');
-    updateTags(getUniqueTags());
+    updateCheckboxes(getUniqueTags());
     
 
     selector.addEventListener('change', async () => {
         const value = selector.value;
         content.innerHTML = ''; 
-        updateSearchPlaceholder(value)
+        updateSearchPlaceholder(value);
 
         if (value === 'champions') {
             await fetchChampions();
-            updateTags(getUniqueTags());
+            updateCheckboxes(getUniqueTags());
         } else if (value === 'items') {
             await fetchItems();
-            typesSelect.innerHTML = '';
+            rolesCheckboxes.innerHTML = '';
         } else if (value === 'runes') {
             await fetchRunes();
-            typesSelect.innerHTML = '';
+            rolesCheckboxes.innerHTML = '';
         }
     });
 
-    // Evento para filtrar campeones por rol
-    typesSelect.addEventListener('change', () => {
-        const selectedRole = typesSelect.value;
-        if (selectedRole) {
-            filterChampionsByRole(selectedRole);
-        } else {
-            displayChampions(allChampions);
-        }
-    });
-
-    // Boton para mostrar el Filtrador
-    btnFilter.addEventListener('click', ()=>{
-        const containerFilter = document.querySelector('.container-filter');
-        containerFilter.classList.toggle('active')
+    // Botón para mostrar el Filtrador
+    btnFilter.addEventListener('click', () => {
+        containerFilter.classList.toggle('active');
     });
 
      // Búsqueda en tiempo real
