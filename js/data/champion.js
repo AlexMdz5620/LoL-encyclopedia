@@ -29,7 +29,7 @@ function displayChampionDetails(champion) {
     // Crear HTML para spells
     let spellsHTML = '';
     champion.spells.forEach((spell, index) => {
-        const spellImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.11.1/img/spell/${spell.image.full}`;
+        const spellImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/spell/${spell.image.full}`;
         const keyToSelect = (() => {
             switch (index) {
                 case 0:
