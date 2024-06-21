@@ -13,7 +13,6 @@ const fetchChampions = async () => {
         }
         const data = await res.json();
         championsData = Object.values(data.data)
-        console.log(championsData)
         displayChampions(championsData);
     } catch (error) {
         console.error('Error al obtener los datos:', error);

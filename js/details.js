@@ -9,17 +9,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (type === 'champion') {
         const championData = await fetchChampionDetails(id);
-        console.log(championData);
         displayChampionDetails(championData);
 
     } else if (type === 'item') {
         const itemData = await fetchItemDetails(id);
-        console.log(itemData);
         displayItemDetails(itemData);
 
     } else if (type === 'rune') {
         const runeData = await fetchRuneDetails(id);
-        console.log(runeData);
         displayRuneDetails(runeData);
     }
 });

@@ -47,19 +47,15 @@ function toggleDescription(event) {
 
     const rows = Array.from(cardSlotsContainer.children);
     if (rows[rowInsertIndex]) {
-        console.log(rows);
-        console.log(rowInsertIndex);
-        console.log(rows[rowInsertIndex]);
         rows[rowInsertIndex].after(description);
     } else {
-        console.log(rows);
-        console.log(rowInsertIndex);
-        console.log(rows[rowInsertIndex]);
         cardSlotsContainer.appendChild(description);
+        description.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Añadir clase activa a la tarjeta actual
     card.classList.add('active');
+
 }
 
 // Mostrar detalles de las runas
