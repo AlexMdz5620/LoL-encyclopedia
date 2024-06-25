@@ -42,7 +42,7 @@ function displayChampions(champions) {
     }
 }
 
-const getUniqueTags = () => {
+const getUniqueTagsChampions = () => {
     const tags = new Set();
     championsData.forEach(champion => {
         champion.tags.forEach(tag => tags.add(tag));
@@ -53,6 +53,6 @@ const getUniqueTags = () => {
 export {
     fetchChampions,
     displayChampions,
-    getUniqueTags,
+    getUniqueTagsChampions,
     championsData
 }

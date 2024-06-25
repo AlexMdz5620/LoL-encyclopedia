@@ -3,19 +3,18 @@ import { URL } from "../config.js";
 const itemsUrl = `${URL}/item.json`;
 
 let itemsKeys = []
+let itemsData;
 
-export async function fetchItems() {
+async function fetchItems() {
     try {
         const res = await fetch(itemsUrl);
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
-        const itemsData = Object.values(data.data);
+        itemsData = Object.values(data.data);
         itemsKeys = Object.keys(data.data)
         displayItems(itemsData)
-        console.log(itemsData)
-
     } catch (error) {
         console.error('Error al obtener los datos:', error);
     }
@@ -40,4 +39,20 @@ function displayItems(data) {
             content.appendChild(div);
         }
     };
+}
+
+const getUniqueTagsItems = () => {
+    const tags = new Set();
+    itemsData.forEach(item => {
+        console.log(item)
+        item.tags.forEach(tag => tags.add(tag));
+    });
+    return Array.from(tags);
+};
+
+export {
+    fetchItems,
+    displayItems,
+    getUniqueTagsItems,
+    itemsData
 }

@@ -7,6 +7,7 @@ async function fetchChampionDetails(id) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
+        console.log(data.data[id])
         return data.data[id];
     } catch (error) {
         console.error('Error al obtener los datos del campeón:', error);
