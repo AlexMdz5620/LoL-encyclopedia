@@ -18,19 +18,6 @@ async function fetchItemDetails(id) {
     }
 }
 
-const getItemsToUpgrade = (item, allItems) => {
-    const upgradeItems = [];
-    if (item.into) {
-        for (const upgradeId of item.into) {
-            if (allItems[upgradeId]) {
-                upgradeItems.push(allItems[upgradeId]);
-            }
-        }
-    }
-    return upgradeItems;
-};
-
-
 const displayItemDetails = ({ item, allItems }) => {
     const content = document.getElementById('detail-content');
     const bgImg = document.getElementById('bg-img');
@@ -83,6 +70,17 @@ const displayItemDetails = ({ item, allItems }) => {
     }    
 };
 
+const getItemsToUpgrade = (item, allItems) => {
+    const upgradeItems = [];
+    if (item.into) {
+        for (const upgradeId of item.into) {
+            if (allItems[upgradeId]) {
+                upgradeItems.push(allItems[upgradeId]);
+            }
+        }
+    }
+    return upgradeItems;
+};
 
 export {
     fetchItemDetails,

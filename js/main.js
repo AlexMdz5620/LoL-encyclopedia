@@ -1,5 +1,5 @@
 import { fetchChampions, displayChampions, getUniqueTagsChampions, championsData } from "./data/champions.js";
-import { fetchItems, displayItems, getUniqueTagsItems, itemsData } from "./data/items.js";
+import { fetchItems, displayItems, getUniqueTagsItems, itemsData, itemsKeys } from "./data/items.js";
 import { fetchRunes } from "./data/runes.js";
 import { formatTagName } from "./data/champion.js";
 
@@ -77,16 +77,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     // Función para filtrar items por función del mismo
-    const filterItemsByFunction = () => {
-        const checkedRoles = Array.from(rolesCheckboxes.querySelectorAll('input:checked')).map(input => input.value);
+const filterItemsByFunction = () => {
+    const checkedRoles = Array.from(rolesCheckboxes.querySelectorAll('input:checked')).map(input => input.value);
 
-        if (checkedRoles.length > 0) {
-            const filteredItems = itemsData.filter(item => checkedRoles.some(role => item.tags.includes(role)));
-            displayItems(filteredItems);
-        } else {
-            displayItems(itemsData);
-        }
-    };
+    if (checkedRoles.length > 0) {
+        const filteredItems = itemsData.filter(item => checkedRoles.some(role => item.tags.includes(role)));
+        const filteredKeys = itemsKeys.filter((key, index) => filteredItems.includes(itemsData[index]));
+        displayItems(filteredItems, filteredKeys);
+    } else {
+        displayItems(itemsData, itemsKeys);
+    }
+};
 
     // Mostrar/Ocultar checkboxes al hacer click en el botón de roles
     rolesBtn.addEventListener('click', () => {
@@ -138,14 +139,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     searchInput.addEventListener('keyup', (e) => {
         e.preventDefault();
         const query = searchInput.value.toLowerCase();
-        document.querySelectorAll('.champion').forEach(champion => {
-            const name = champion.querySelector('h4').textContent.toLowerCase();
-            const title = champion.querySelector('p').textContent.toLowerCase();
-            if (name.includes(query) || title.includes(query)) {
-                champion.classList.remove('hidden');
-            } else {
-                champion.classList.add('hidden');
-            }
-        });
+        const value = selector.value;
+
+        if (value === 'champions') {
+            document.querySelectorAll('.champion').forEach(champion => {
+                const name = champion.querySelector('h4').textContent.toLowerCase();
+                const title = champion.querySelector('p').textContent.toLowerCase();
+                if (name.includes(query) || title.includes(query)) {
+                    champion.classList.remove('hidden');
+                } else {
+                    champion.classList.add('hidden');
+                }
+            });
+        } else if (value === 'items') {
+            document.querySelectorAll('.item').forEach(item => {
+                const name = item.querySelector('h2').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
     });
 });
