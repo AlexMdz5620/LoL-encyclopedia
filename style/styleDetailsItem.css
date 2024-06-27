@@ -1,15 +1,35 @@
+@font-face {
+    font-family: 'TitleFont';
+    src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BodyFont';
+    src: url('../fonts/Spiegel-TTF/Spiegel_TT_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Cinzel', serif;
     font-weight: 800;
 }
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'TitleFont';
+}
+
+p, button{
+    font-family: 'BodyFont';
 }
 
 #bg-img {
@@ -32,13 +52,12 @@ h2, h3, h5 {
 
 main {
     width: 50%;
-    margin: auto;
     position: relative;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px auto;
+    margin: 120px auto;
     padding: 15px 0;
     gap: 10px;
     text-align: center;
@@ -52,11 +71,13 @@ header {
     color: #fff;
     text-align: center;
     padding: 10px;
+    position: fixed;
+    width: 96.3vw;
     height: 15vh;
     border-radius: 10px;
-    background-size: cover;
     background-position: center;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .item div {

@@ -1,14 +1,25 @@
+@font-face {
+    font-family: 'TitleFont';
+    src: url('../fonts/BeaufortForLoL-TTF/BeaufortforLOL-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BodyFont';
+    src: url('../fonts/Spiegel-TTF/Spiegel_TT_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Cinzel', serif;
     font-weight: 800;
 }
 
 body {
-    font-family: 'Cinzel', serif;
-    font-family: Arial, sans-serif;
     background-image: url('https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2015/02/447638-guia-league-legends-grieta-invocador.jpg?tf=1200x');
     background-position: center;
     background-attachment: fixed;
@@ -30,6 +41,14 @@ header {
     border-radius: 10px;
     background-position: center;
     background: rgba(0, 0, 0, 0.5);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'TitleFont';
+}
+
+p, button{
+    font-family: 'BodyFont';
 }
    /* Boton de Filtrado */
 .container-filter-btn{
@@ -164,7 +183,6 @@ button:hover {
 }
 .form-grup input {
     text-align: center;
-    font-family: inherit;
     border: none;
     outline: none;
     background-color: #e6e6e6;
