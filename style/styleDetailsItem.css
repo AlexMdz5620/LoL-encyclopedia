@@ -40,6 +40,8 @@ main {
     align-items: center;
     margin: 15px auto;
     padding: 15px 0;
+    gap: 10px;
+    text-align: center;
 }
 
 header {
@@ -68,7 +70,27 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 10px 0;
 }
+
+.upgrade-items img{
+    margin: 10px 0;
+}
+
+/* Extras de Item*/
+.item-info {
+    margin-top: 20px;
+}
+
+.item-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.item-info h2 {
+    margin-bottom: 10px;
+}
+
 
 /* Boton regresar */
 .back-home{

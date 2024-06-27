@@ -1,4 +1,5 @@
 import { URL } from "../config.js";
+import { formatTagsName } from './item.js'
 
 const itemsUrl = `${URL}/item.json`;
 
@@ -25,6 +26,8 @@ function displayItems(data, keys) {
     content.innerHTML = '';
 
     data.forEach((item, index) => {
+
+        console.log(formatTagsName(item.tags))
         if (item.colloq !== '' && item.description !== '' && item.plaintext !== '' && item.inStore !== false) {
             const div = document.createElement('div');
             div.classList.add('item');
@@ -32,6 +35,10 @@ function displayItems(data, keys) {
             div.innerHTML = `
                 <img src="${imgSrc}" alt="${item.name}">
                 <h2>${item.name}</h2>
+                <div class="item-info">
+                    <h4>Función</h4>
+                    <p><strong>${formatTagsName(item.tags.join(', '))}</strong></p>
+                </div>
                 <button onclick="window.location.href='./detailsItem.html?type=item&id=${keys[index]}'">Más información</button>
             `;
             content.appendChild(div);

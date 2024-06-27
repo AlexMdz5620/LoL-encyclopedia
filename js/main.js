@@ -2,6 +2,7 @@ import { fetchChampions, displayChampions, getUniqueTagsChampions, championsData
 import { fetchItems, displayItems, getUniqueTagsItems, itemsData, itemsKeys } from "./data/items.js";
 import { fetchRunes } from "./data/runes.js";
 import { formatTagName } from "./data/champion.js";
+import { formatTagsName } from './data/item.js'
 
 document.addEventListener('DOMContentLoaded', async () => {
     const selector = document.getElementById('selector');
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         tags.forEach(tag => {
             const label = document.createElement('label');
             label.innerHTML = `
-                <input type="checkbox" value="${tag}"> ${tag}
+                <input type="checkbox" value="${tag}"> ${formatTagsName(tag)}
             `;
             rolesCheckboxes.appendChild(label);
         });

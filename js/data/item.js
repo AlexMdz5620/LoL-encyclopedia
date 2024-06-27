@@ -10,6 +10,7 @@ async function fetchItemDetails(id) {
         const items = data.data
         for(const item in items){
             if(id === item){
+                console.log(items[id])
                 return { item: items[id], allItems: items}
             }
         }
@@ -26,6 +27,13 @@ const displayItemDetails = ({ item, allItems }) => {
 
     bgImg.style.backgroundImage = `url(${imgSrc})`;
 
+    // Sección de Tags
+    let infoHTML = '<div class="item-info"><h2>Función</h2>';
+    for (let tag of item.tags) {
+        infoHTML += `<p><strong>${formatTagsName(tag)}</strong></p>`;
+    }
+    infoHTML += '</div>';
+
     if (item) {
         const div = document.createElement('div');
         div.classList.add('item-details');
@@ -36,12 +44,18 @@ const displayItemDetails = ({ item, allItems }) => {
                     <img src="${imgSrc}" alt="${item.name}" style="width:70px;height:70px;">
                     <h2>${item.name}</h2>
                 </div>
+
+                ${infoHTML}
+                
+                <h2>Descripción</h2>
                 <p>${item.plaintext}</p>
+
+                <h2>Estadisticas</h2>
                 <p>${item.description}</p>
-                <ul>
-                    <li>Costo: ${item.gold.total} oro</li>
-                    <li>Venta: ${item.gold.sell} oro</li>
-                </ul>
+                
+                <p>Costo: ${item.gold.total} oro</p>
+                <p>Venta: ${item.gold.sell} oro</p>
+                
             </div>
         `;
         
@@ -82,7 +96,76 @@ const getItemsToUpgrade = (item, allItems) => {
     return upgradeItems;
 };
 
+function formatTagsName(tag) {
+    switch (tag) {
+        case 'Boots':
+            return 'Botas';
+        case 'ManaRegen':
+            return 'Regeneración de Maná';
+        case 'HealthRegen':
+            return 'Regeneración de Vida';
+        case 'Health':
+            return 'Vida';
+        case 'CriticalStrike':
+            return 'Golpe Crítico';
+        case 'SpellDamage':
+            return 'Daño Mágico';
+        case 'Mana':
+            return 'Maná';
+        case 'Armor':
+            return 'Armadura';
+        case 'SpellBlock':
+            return 'Resistencia Mágica';
+        case 'LifeSteal':
+            return 'Robo de Vida';
+        case 'SpellVamp':
+            return 'Omnivampirismo';
+        case 'Jungle':
+            return 'Jungla';
+        case 'Damage':
+            return 'Daño';
+        case 'Lane':
+            return 'En Línea';
+        case 'AttackSpeed':
+            return 'Velocidad de Ataque';
+        case 'OnHit':
+            return 'Efecto de Impacto';
+        case 'Trinket':
+            return 'Baratija';
+        case 'Active':
+            return 'Activa';
+        case 'Consumable':
+            return 'Consumible';
+        case 'CooldownReduction':
+            return 'Reducción de Enfriamiento';
+
+        case 'ArmorPenetration':
+            return 'Penetración de Armadura';
+        case 'AbilityHaste':
+            return 'Aceleración de Habilidad';
+        case 'Stealth':
+            return 'Sigilo';
+        case 'Vision':
+            return 'Visión';
+        case 'NonbootsMovement':
+            return 'Velocidad de Movimiento';
+        case 'Tenacity':
+            return 'Tenacidad';
+        case 'MagicPenetration':
+            return 'Penetración Mágica';
+        case 'Aura':
+            return 'Aura';
+        case 'Slow':
+            return 'Ralentización';
+        case 'MagicResist':
+            return 'Resistencia Mágica';
+        default:
+            return tag;
+    }
+}
+
 export {
     fetchItemDetails,
-    displayItemDetails
+    displayItemDetails,
+    formatTagsName
 }
