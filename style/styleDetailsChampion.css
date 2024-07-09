@@ -98,16 +98,18 @@ h2, h3, h5 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
 }
 
 .card-spell{
     text-align: center;
-    width: 20%;
+    width: 18%;
     transition: transform 0.3s;
 }
 
 .card-spell:hover  {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .card-spell-description {

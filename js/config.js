@@ -1,3 +1,14 @@
-export const URL = `https://ddragon.leagueoflegends.com/cdn/14.12.1/data/es_MX`
+// Cambiantes con el parche
+const URL = 'https://ddragon.leagueoflegends.com/cdn/14.13.1/data/es_MX'
+const urlImage = 'https://ddragon.leagueoflegends.com/cdn/14.13.1/img/'
 
-const parche = `14.12.1`
+// Fijos
+const urlImgChampion = 'https://ddragon.leagueoflegends.com/cdn/img/champion/'
+const urlImgRune = 'https://ddragon.leagueoflegends.com/cdn/img/'
+
+export {
+    URL,
+    urlImage,
+    urlImgChampion,
+    urlImgRune
+}

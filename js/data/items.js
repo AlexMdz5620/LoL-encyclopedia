@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImage } from "../config.js";
 import { formatTagsName } from './item.js'
 
 const itemsUrl = `${URL}/item.json`;
@@ -31,7 +31,7 @@ function displayItems(data, keys) {
         if (item.colloq !== '' && item.description !== '' && item.plaintext !== '' && item.inStore !== false) {
             const div = document.createElement('div');
             div.classList.add('item');
-            const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${item.image.full}`;
+            const imgSrc = `${urlImage}item/${item.image.full}`;
             div.innerHTML = `
                 <img src="${imgSrc}" alt="${item.name}">
                 <h2>${item.name}</h2>

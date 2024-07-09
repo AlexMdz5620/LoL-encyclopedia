@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImage, urlImgChampion } from "../config.js";
 
 async function fetchChampionDetails(id) {
     try {
@@ -17,9 +17,9 @@ async function fetchChampionDetails(id) {
 function displayChampionDetails(champion) {
     const content = document.getElementById('detail-content');
     const bgImg = document.getElementById('bg-img');
-    const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/champion/${champion.image.full}`;
-    const baseSkinImgSrc = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
-    const passiveImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/passive/${champion.passive.image.full}`;
+    const imgSrc = `${urlImage}champion/${champion.image.full}`;
+    const baseSkinImgSrc = `${urlImgChampion}splash/${champion.id}_0.jpg`;
+    const passiveImgSrc = `${urlImage}passive/${champion.passive.image.full}`;
 
     bgImg.style.backgroundImage = `url(${baseSkinImgSrc})`;
 
@@ -30,7 +30,7 @@ function displayChampionDetails(champion) {
     // Crear HTML para spells
     let spellsHTML = '';
     champion.spells.forEach((spell, index) => {
-        const spellImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/spell/${spell.image.full}`;
+        const spellImgSrc = `${urlImage}spell/${spell.image.full}`;
         const keyToSelect = (() => {
             switch (index) {
                 case 0:
@@ -87,7 +87,7 @@ function displayChampionDetails(champion) {
     const getSkinsHTML = (skins, championId) => {
         let skinsHTML = '';
         skins.forEach((skin, index) => {
-            const skinImgSrc = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championId}_${skin.num}.jpg`;
+            const skinImgSrc = `${urlImgChampion}splash/${championId}_${skin.num}.jpg`;
             const skinName = index === 0 ? champion.name : skin.name;
             skinsHTML += `
                 <div class="carousel-item">

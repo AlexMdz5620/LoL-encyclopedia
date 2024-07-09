@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImgRune } from "../config.js";
 
 // Obtener detalles de las runas
 async function fetchRuneDetails(id) {
@@ -70,7 +70,7 @@ function displayRuneDetails(rune) {
     let slotsHTML = '<div class="card-slots-container">';
     rune.slots.forEach((slot, index) => {
         slot.runes.forEach((rune, runeIndex) => {
-            const runeImgSrc = `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`;
+            const runeImgSrc = `${urlImgRune}${rune.icon}`;
             slotsHTML += `
                 <div class="card-slots" data-name="${rune.name}" data-description="${rune.longDesc}" data-index="${index * 100 + runeIndex}">
                     <h4>${rune.name}</h4>
@@ -81,7 +81,7 @@ function displayRuneDetails(rune) {
     });
     slotsHTML += '</div>';
 
-    const imgRune = `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`;
+    const imgRune = `${urlImgRune}${rune.icon}`;
     content.innerHTML = `
         <img src="${imgRune}" alt="${rune.name}">
         <h2>${rune.name}</h2>

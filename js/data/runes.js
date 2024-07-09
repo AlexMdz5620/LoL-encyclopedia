@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImgRune } from "../config.js";
 
 const runesUrl = `${URL}/runesReforged.json`;
 
@@ -22,7 +22,7 @@ function displayRunes(data) {
     data.forEach(rune => {
         const div = document.createElement('div');
         div.classList.add('rune');
-        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/img/${rune.icon}`;
+        const imgSrc = `${urlImgRune}${rune.icon}`;
         div.innerHTML = `
             <img src="${imgSrc}" alt="${rune.name}">
             <h2>${rune.name}</h2>

@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImage } from "../config.js";
 
 async function fetchItemDetails(id) {
     try {
@@ -37,7 +37,7 @@ const displayItemDetails = ({ item, allItems }) => {
     if (item) {
         const div = document.createElement('div');
         div.classList.add('item-details');
-        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${item.image.full}`;
+        const imgSrc = `${urlImage}item/${item.image.full}`;
         div.innerHTML = `
             <div class="item">
                 <div>
@@ -66,7 +66,7 @@ const displayItemDetails = ({ item, allItems }) => {
             upgradeDiv.classList.add('upgrade-items');
             let upgradeContent = `<h3>Se puede mejorar a:</h3>`;
             upgradeItems.forEach(upgradeItem => {
-                const upgradeImgSrc = `https://ddragon.leagueoflegends.com/cdn/14.12.1/img/item/${upgradeItem.image.full}`;
+                const upgradeImgSrc = `${urlImage}item/${upgradeItem.image.full}`;
                 upgradeContent += `
                     <div class="upgrade-items">
                         <h5>${upgradeItem.name}</h5>

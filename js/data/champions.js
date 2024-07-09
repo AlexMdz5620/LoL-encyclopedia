@@ -1,4 +1,4 @@
-import { URL } from "../config.js";
+import { URL, urlImgChampion } from "../config.js";
 import { formatTagName } from "./champion.js";
 
 const championsUrl = `${URL}/champion.json`;
@@ -30,7 +30,7 @@ function displayChampions(champions) {
 
         const div = document.createElement('div');
         div.classList.add('champion');
-        const imgSrc = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
+        const imgSrc = `${urlImgChampion}loading/${champion.id}_0.jpg`;
         div.innerHTML = `
             <img src="${imgSrc}" alt="${champion.name}">
             <h2>${champion.name}</h2>

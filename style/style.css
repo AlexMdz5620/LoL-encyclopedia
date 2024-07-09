@@ -41,6 +41,7 @@ header {
     border-radius: 10px;
     background-position: center;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,7 +82,26 @@ main {
     background: rgba(0, 0, 0, 0.237);
     color: #e6e6e6;
     transition: transform 0.5s;
-    gap: 5px
+    gap: 5px;
+
+    view-timeline-name: --reveal;
+
+    animation-name: show;
+    animation-fill-mode: both;
+
+    animation-timeline: --reveal;
+    animation-range: entry 25% cover 50%;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 10%;
+    }
+    to {
+        opacity: 1;
+        scale: 100%;
+    }
 }
 
 .champion:hover, .item:hover, .rune:hover{
@@ -139,6 +159,7 @@ button:hover {
     transition: all .5s linear;
     padding: 2rem;
     overflow: hidden;
+    z-index: 2;
 }
 .container-filter img {
     width: 50%;
