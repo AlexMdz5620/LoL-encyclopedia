@@ -1,6 +1,7 @@
 // Cambiantes con el parche
-const URL = 'https://ddragon.leagueoflegends.com/cdn/14.24.1/data/es_MX'
-const urlImage = 'https://ddragon.leagueoflegends.com/cdn/14.24.1/img/'
+const parch = '15.18.1'
+const URL = 'https://ddragon.leagueoflegends.com/cdn/15.18.1/data/es_MX'
+const urlImage = 'https://ddragon.leagueoflegends.com/cdn/15.18.1/img/'
 
 // Fijos
 const urlImgChampion = 'https://ddragon.leagueoflegends.com/cdn/img/champion/'
