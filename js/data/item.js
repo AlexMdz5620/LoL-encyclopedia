@@ -10,7 +10,7 @@ async function fetchItemDetails(id) {
         const items = data.data
         for(const item in items){
             if(id === item){
-                console.log(items[id])
+                // console.log(items[id])
                 return { item: items[id], allItems: items}
             }
         }

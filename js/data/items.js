@@ -26,8 +26,7 @@ function displayItems(data, keys) {
     content.innerHTML = '';
 
     data.forEach((item, index) => {
-
-        console.log(formatTagsName(item.tags))
+        // console.log(formatTagsName(item.tags))
         if (item.colloq !== '' && item.description !== '' && item.plaintext !== '' && item.inStore !== false) {
             const div = document.createElement('div');
             div.classList.add('item');

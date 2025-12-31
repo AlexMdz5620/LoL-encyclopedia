@@ -7,7 +7,7 @@ async function fetchChampionDetails(id) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
-        console.log(data.data[id])
+        // console.log(data.data[id])
         return data.data[id];
     } catch (error) {
         console.error('Error al obtener los datos del campeón:', error);
@@ -81,7 +81,7 @@ function displayChampionDetails(champion) {
     
     // Crear HTML para tips
     const allyTipsHTML = champion.allytips.length === 0 ? `<li>Ningun consejo para este Campeon</li>` : champion.allytips.map(tip => `<li>${tip}</li>`).join('');
-    const enemyTipsHTML = champion.allytips.length === 0 ? `<li>Ningun consejo  en contra para este Campeon</li>` : champion.enemytips.map(tip => `<li>${tip}</li>`).join('');
+    const enemyTipsHTML = champion.allytips.length === 0 ? `<li>Ningun consejo en contra para este Campeon</li>` : champion.enemytips.map(tip => `<li>${tip}</li>`).join('');
 
     // Función para obtener el HTML de los skins
     const getSkinsHTML = (skins, championId) => {
