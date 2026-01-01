@@ -11,15 +11,27 @@
   --card-foreground: oklch(0.95 0.01 95);
   --popover: oklch(0.12 0.02 265);
   --popover-foreground: oklch(0.95 0.01 95);
-  --primary: oklch(0.55 0.2 45);
+  /* --primary: oklch(0.55 0.2 45); */
+
+  --primary: #c89b3c; /* Oro de LoL */
+
   --primary-foreground: oklch(0.98 0.01 95);
-  --secondary: oklch(0.22 0.03 265);
+  /* --secondary: oklch(0.22 0.03 265); */
+
+  --secondary: #1e2328; /* Fondo oscuro */
+
   --secondary-foreground: oklch(0.95 0.01 95);
   --muted: oklch(0.22 0.03 265);
   --muted-foreground: oklch(0.65 0.02 265);
-  --accent: oklch(0.45 0.18 195);
+  /* --accent: oklch(0.45 0.18 195); */
+
+  --accent: #0ac8b9; /* Turquesa */
+
   --accent-foreground: oklch(0.98 0.01 95);
-  --destructive: oklch(0.55 0.22 15);
+  /* --destructive: oklch(0.55 0.22 15); */
+
+  --destructive: #c41e3a; /* Rojo */
+
   --destructive-foreground: oklch(0.98 0.01 95);
   --border: oklch(0.25 0.03 265);
   --input: oklch(0.25 0.03 265);
