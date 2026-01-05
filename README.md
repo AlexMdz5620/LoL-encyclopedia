@@ -1,4 +1,4 @@
-# 🏆 LoL Encyclopedia - Enciclopedia de League of Legends
+# 🏆 La Enciclopedia del Invocador - Enciclopedia de League of Legends
 
 Una enciclopedia moderna e interactiva de League of Legends construida con Next.js 14, TypeScript y Tailwind CSS. Ofrece información actualizada automáticamente sobre campeones, ítems y runas del universo de LoL.
 
