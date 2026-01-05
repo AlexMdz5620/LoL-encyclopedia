@@ -27,15 +27,23 @@ export default function Navbar() {
         >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-2">
-                        <Image
-                            className="p-2 m-1 rounded-2xl"
-                            src="/the_Summoner's_Encyclopedia.png"
-                            alt="Next.js logo"
-                            width={75}
-                            height={75}
-                            priority
-                        />
+                    <Link href="/" className="flex items-center">
+                        <div className="relative flex items-center">
+                            <Image
+                                className="p-2 m-1 rounded-2xl"
+                                src="/the_Summoner's_Encyclopedia.png"
+                                alt="The Summoner's Encyclopedia logo"
+                                width={60}
+                                height={60}
+                                priority
+                                style={{
+                                    width: 'auto',
+                                    height: 'auto',
+                                    maxWidth: '60px',
+                                    maxHeight: '60px'
+                                }}
+                            />
+                        </div>
                     </Link>
                     <div className="flex gap-1">
                         {navItems.map(item => {
@@ -52,9 +60,12 @@ export default function Navbar() {
                                             ? "bg-primary text-primary-foreground"
                                             : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                                     )}
+                                    title={item.label} // Tooltip para mobile
                                 >
                                     <Icon className='size-4' />
-                                    <span className='font-medium'>{item.label}</span>
+                                    <span className='font-medium hidden sm:inline'>
+                                        {item.label}
+                                    </span>
                                 </Link>
                             );
                         })}

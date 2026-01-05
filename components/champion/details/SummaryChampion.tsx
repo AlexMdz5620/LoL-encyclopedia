@@ -8,9 +8,10 @@ import {
 
 type SummaryChampionProps = {
     champion: Champion;
+    difficultyColorsText: Record<number, string>
 }
 
-export default function SummaryChampion({ champion }: SummaryChampionProps) {
+export default function SummaryChampion({ champion, difficultyColorsText }: SummaryChampionProps) {
     return (
         <div className="space-y-8">
             {/* Sección de Historia */}
@@ -35,7 +36,7 @@ export default function SummaryChampion({ champion }: SummaryChampionProps) {
                     <h2 className="font-beaufort font-bold text-2xl">Perfil de Combate</h2>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
                     <StatBar 
                         icon={Sword} 
                         label="Ataque" 
@@ -65,7 +66,7 @@ export default function SummaryChampion({ champion }: SummaryChampionProps) {
                         label="Dificultad" 
                         value={champion.info.difficulty} 
                         max={10} 
-                        color="text-chart-3"
+                        color={champion.info.difficulty ? difficultyColorsText[champion.info.difficulty] : 'chart-3'}
                         description="Complejidad para dominar el campeón"
                     />
                 </div>

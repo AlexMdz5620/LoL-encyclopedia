@@ -82,11 +82,11 @@ export default function ChampionDetail({ champion }: ChampionDetailProps) {
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-transparent via-black/20 to-black" />
             </div>
 
-            <div className="grid lg:grid-cols-4 gap-8 relative z-10">
+            <div className="flex flex-col lg:grid lg:grid-cols-4 gap-8 relative z-10">
                 {/* Columna izquierda - Fija en desktop */}
-                <div className="lg:sticky lg:top-8 lg:h-fit py-7">
+                <div className="lg:sticky lg:top-8 lg:h-fit lg:py-7">
                     <Card className="overflow-hidden bg-card/0 border-none">
-                        <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto md:mx-0">
+                        <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 mx-auto lg:mx-0">
                             <div className="absolute inset-0 bg-linear-to-br from-amber-500 via-yellow-600 to-amber-800 rounded-full p-1">
                                 <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-gray-900">
                                     <Image
@@ -101,7 +101,7 @@ export default function ChampionDetail({ champion }: ChampionDetailProps) {
                             {/* Efecto de brillo */}
                             <div className="absolute inset-0 bg-linear-to-r from-transparent via-amber-400/20 to-transparent animate-pulse rounded-full" />
                         </div>
-                        <CardContent className="pl-6 pb-6">
+                        <CardContent className="flex flex-col text-center pl-6 pb-6">
                             <h1 className="font-beaufort font-bold text-3xl">{champion.name}</h1>
                             <p className="font-spiegel text-lg text-muted-foreground italic">{champion.title}</p>
 
@@ -117,12 +117,12 @@ export default function ChampionDetail({ champion }: ChampionDetailProps) {
                                     </div>
                                 </div>
 
-                                <div className="hidden lg:flex flex-col gap-2">
+                                <div className="flex flex-col gap-2">
                                     <div className={`font-beaufort font-bold ${difficultyColorsText[champion.info.difficulty]}`}>Dificultad</div>
                                     <div className='font-bold'>
                                         {champion.info.difficulty}/10
                                     </div>
-                                    <div className="flex">
+                                    <div className="flex mx-auto">
                                         {[...Array(10)].map((_, i) => (
                                             <div
                                                 key={i}
@@ -139,16 +139,16 @@ export default function ChampionDetail({ champion }: ChampionDetailProps) {
                 </div>
 
                 {/* Columna derecha: Contenido principal */}
-                <div className="md:col-span-3">
+                <div className="lg:col-span-3">
                     <Tabs defaultValue="overview" className="w-full">
-                        <TabsList className='bg-card/5'>
+                        <TabsList className='bg-card/5 flex-wrap pb-2 h-fit space-x-1'>
                             {tabs.map(tab => (
                                 <TabsTrigger
                                     key={tab.name}
                                     value={tab.value}
                                     className='hover:cursor-pointer data-[state=active]:bg-primary/30
                                              data-[state=active]:shadow-lg data-[state=active]:shadow-primary/15
-                                             hover:bg-gray-800/50 transition-all duration-300 py-4 rounded-xl
+                                             hover:bg-gray-800/50 transition-all duration-300 p-1 rounded-xl
                                              font-beaufort font-bold text-sm md:text-base'
                                 >
                                     {tab.name}
@@ -159,7 +159,7 @@ export default function ChampionDetail({ champion }: ChampionDetailProps) {
                         <TabsContent value="overview">
                             <Card className='bg-card/5 border-none'>
                                 <CardContent className="p-6">
-                                    <SummaryChampion champion={champion} />
+                                    <SummaryChampion champion={champion} difficultyColorsText={difficultyColorsText} />
                                 </CardContent>
                             </Card>
                         </TabsContent>

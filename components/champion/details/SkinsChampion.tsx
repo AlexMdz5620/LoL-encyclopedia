@@ -55,15 +55,15 @@ export default function SkinsChampion({ champion }: SkinsChampionProps) {
                     <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 to-transparent p-6">
                         <div className="flex items-end justify-between">
                             <div>
-                                <h3 className="font-beaufort font-bold text-2xl text-white">
+                                <h3 className="font-beaufort md:font-bold text-xl md:text-2xl text-white">
                                     {activeSkinIndex === 0 ? champion.name : currentSkin.name}
                                 </h3>
-                                <p className="font-spiegel text-gray-300">
+                                <p className="text-sm font-spiegel text-gray-300">
                                     Número: {currentSkin.num} {currentSkin.chromas && '• Con Cromas'}
                                 </p>
                             </div>
                             <div className="text-right">
-                                <div className="font-beaufort font-bold text-3xl text-primary">
+                                <div className="font-beaufort font-bold md:text-3xl text-primary">
                                     {activeSkinIndex + 1}/{skins.length}
                                 </div>
                             </div>
